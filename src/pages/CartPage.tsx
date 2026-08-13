@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useAppStore } from '../store';
@@ -40,13 +40,11 @@ const CartPage = () => {
                   <img src={item.image} alt={item.name} className="w-16 h-16 rounded-xl object-cover" />
                   <div>
                     <h3 className="font-serif text-lg">{t(item.name)}</h3>
-                    {item.options && (
+                    {item.option && (
                       <div className="flex gap-2 mb-1">
-                        {item.options.map((opt, i) => (
-                          <span key={i} className="text-xs bg-gray-100 dark:bg-white/10 px-2 py-1 rounded-full text-gray-500 dark:text-gray-400">
-                            {t(opt)}
-                          </span>
-                        ))}
+                        <span className="text-xs bg-gray-100 dark:bg-white/10 px-2 py-1 rounded-full text-gray-500 dark:text-gray-400">
+                          {item.option}
+                        </span>
                       </div>
                     )}
                     <p className="text-gray-500 text-sm">Qty: {item.quantity}</p>
