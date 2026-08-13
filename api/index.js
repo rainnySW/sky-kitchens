@@ -32,6 +32,7 @@ const orderSchema = new mongoose.Schema({
   total: Number,
   status: { type: String, default: 'Pending' },
   createdAt: { type: Date, default: Date.now }
+});
 const Order = mongoose.models.Order || mongoose.model('Order', orderSchema);
 
 app.post('/api/orders', async (req, res) => {
