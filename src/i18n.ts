@@ -1,0 +1,128 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+const resources = {
+  en: {
+    translation: {
+      "home": "Home",
+      "menu": "Our Menu",
+      "cart": "Cart",
+      "login": "Login / Sign Up",
+      "logout": "Logout",
+      "welcome": "Welcome to Sky Thai Kitchen",
+      "subtitle": "Experience the High-Society Thai Dining",
+      "recommendations": "Chef's Recommendations",
+      "add_to_cart": "Add to Cart",
+      "clear_cart": "Clear Cart",
+      "confirm_order": "Confirm Order",
+      "payment": "Payment",
+      "scan_qr": "Scan QR Code",
+      "bank_transfer": "Bank Transfer",
+      "finish_payment": "Finish Payment",
+      "printing_slip": "Printing Slip...",
+      "queue_number": "Queue Number",
+      "table_number": "Table Number",
+      "order_confirmed": "Order Confirmed",
+      "Pad Thai Goong Sod": "Pad Thai Goong Sod",
+      "Tom Yum Goong": "Tom Yum Goong",
+      "Green Curry Chicken": "Green Curry Chicken",
+      "Mango Sticky Rice": "Mango Sticky Rice",
+      "Som Tum Thai (Papaya Salad)": "Som Tum Thai (Papaya Salad)",
+      "Massaman Beef Curry": "Massaman Beef Curry",
+      "Khao Pad Pu (Crab Fried Rice)": "Khao Pad Pu (Crab Fried Rice)",
+      "Moo Ping (Grilled Pork)": "Moo Ping (Grilled Pork)",
+      "Pla Rad Prik (Crispy Fish)": "Pla Rad Prik (Crispy Fish)",
+      "Thai Iced Tea": "Thai Iced Tea",
+      "Moo Krob (Crispy Pork Belly)": "Moo Krob (Crispy Pork Belly)",
+      "Khao Soi (Northern Curry Noodles)": "Khao Soi (Northern Curry Noodles)",
+      "Tod Mun Pla (Thai Fish Cakes)": "Tod Mun Pla (Thai Fish Cakes)",
+      "Larb Moo (Spicy Minced Pork Salad)": "Larb Moo (Spicy Minced Pork Salad)",
+      "Tub Tim Grob (Red Ruby Dessert)": "Tub Tim Grob (Red Ruby Dessert)",
+      "Main": "Main Dish",
+      "Soup": "Soup",
+      "Dessert": "Dessert",
+      "Salad": "Salad",
+      "Appetizer": "Appetizer",
+      "Beverage": "Beverage",
+      "Less Spicy": "Less Spicy",
+      "Extra Spicy": "Extra Spicy",
+      "No MSG": "No MSG",
+      "No Veggies": "No Veggies",
+      "Extra Meat": "Extra Meat",
+      "No Peanuts": "No Peanuts",
+      "Select Size": "Select Size",
+      "Special Instructions": "Special Instructions",
+      "Quantity": "Quantity",
+      "Regular": "Regular",
+      "Large": "Large"
+    }
+  },
+  th: {
+    translation: {
+      "home": "หน้าแรก",
+      "menu": "เมนูของเรา",
+      "cart": "ตะกร้า",
+      "login": "เข้าสู่ระบบ / สมัครสมาชิก",
+      "logout": "ออกจากระบบ",
+      "welcome": "ยินดีต้อนรับสู่ สกาย ไทย คิทเช่น",
+      "subtitle": "สัมผัสประสบการณ์อาหารไทยระดับไฮโซ",
+      "recommendations": "เมนูแนะนำจากเชฟ",
+      "add_to_cart": "เพิ่มลงตะกร้า",
+      "clear_cart": "ล้างตะกร้า",
+      "confirm_order": "ยืนยันคำสั่งซื้อ",
+      "payment": "ชำระเงิน",
+      "scan_qr": "สแกนคิวอาร์โค้ด",
+      "bank_transfer": "โอนผ่านธนาคาร",
+      "finish_payment": "ชำระเงินเสร็จสิ้น",
+      "printing_slip": "กำลังพิมพ์ใบเสร็จ...",
+      "queue_number": "หมายเลขคิว",
+      "table_number": "หมายเลขโต๊ะ",
+      "order_confirmed": "ยืนยันคำสั่งซื้อแล้ว",
+      "Pad Thai Goong Sod": "ผัดไทยกุ้งสด",
+      "Tom Yum Goong": "ต้มยำกุ้ง",
+      "Green Curry Chicken": "แกงเขียวหวานไก่",
+      "Mango Sticky Rice": "ข้าวเหนียวมะม่วง",
+      "Som Tum Thai (Papaya Salad)": "ส้มตำไทย",
+      "Massaman Beef Curry": "แกงมัสมั่นเนื้อ",
+      "Khao Pad Pu (Crab Fried Rice)": "ข้าวผัดปู",
+      "Moo Ping (Grilled Pork)": "หมูปิ้ง",
+      "Pla Rad Prik (Crispy Fish)": "ปลาราดพริก",
+      "Thai Iced Tea": "ชาไทยเย็น",
+      "Moo Krob (Crispy Pork Belly)": "หมูกรอบ",
+      "Khao Soi (Northern Curry Noodles)": "ข้าวซอย",
+      "Tod Mun Pla (Thai Fish Cakes)": "ทอดมันปลา",
+      "Larb Moo (Spicy Minced Pork Salad)": "ลาบหมู",
+      "Tub Tim Grob (Red Ruby Dessert)": "ทับทิมกรอบ",
+      "Main": "อาหารจานหลัก",
+      "Soup": "ซุป",
+      "Dessert": "ของหวาน",
+      "Salad": "ยำ/สลัด",
+      "Appetizer": "อาหารเรียกน้ำย่อย",
+      "Beverage": "เครื่องดื่ม",
+      "Less Spicy": "เผ็ดน้อย",
+      "Extra Spicy": "เผ็ดมาก",
+      "No MSG": "ไม่ใส่ผงชูรส",
+      "No Veggies": "ไม่ใส่ผัก",
+      "Extra Meat": "เพิ่มเนื้อสัตว์",
+      "No Peanuts": "ไม่ใส่ถั่ว",
+      "Select Size": "เลือกขนาด",
+      "Special Instructions": "คำแนะนำพิเศษ",
+      "Quantity": "จำนวน",
+      "Regular": "ธรรมดา",
+      "Large": "พิเศษ"
+    }
+  }
+};
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources,
+    lng: "th",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false
+    }
+  });
+
+export default i18n;
