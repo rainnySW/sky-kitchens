@@ -1,5 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -10,36 +9,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/sky-thaikitchen';
+// Mock database for orders
+let mockOrders = [];
 
-// Ensure MongoDB is only connected once in Serverless environments
-if (mongoose.connection.readyState === 0) {
-  mongoose.connect(MONGODB_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('MongoDB connection error:', err));
-}
-
-const userSchema = new mongoose.Schema({
-  username: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true }
-});
-const User = mongoose.models.User || mongoose.model('User', userSchema);
-
-const orderSchema = new mongoose.Schema({
-  tableNumber: String,
-  items: Array,
-  total: Number,
-  status: { type: String, default: 'Pending' },
-  createdAt: { type: Date, default: Date.now }
-});
-const Order = mongoose.models.Order || mongoose.model('Order', orderSchema);
-
-app.post('/api/orders', async (req, res) => {
+app.post('/api/orders', (req, res) => {
   try {
-    const order = new Order(req.body);
-    await order.save();
-    res.json({ message: 'Order created', orderId: order._id });
+    const order = { ...req.body, _id: Date.now().toString(), status: 'Pending', createdAt: new Date() };
+    mockOrders.push(order);
+    res.json({ message: 'Order created successfully', orderId: order._id });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
