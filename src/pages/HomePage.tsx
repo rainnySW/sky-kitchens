@@ -20,7 +20,10 @@ const HomePage = () => {
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-navy-900/60 z-10" />
-          <img 
+          <motion.img 
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.1 }}
+            transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
             src="https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&q=80&w=2000" 
             alt="Thai Food Hero"
             className="w-full h-full object-cover"
@@ -65,13 +68,14 @@ const HomePage = () => {
           {recommendations.map((item: any, idx: number) => (
             <motion.div 
               key={item.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8, scale: 1.03 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.2 }}
-              className="glass-panel rounded-2xl overflow-hidden group"
+              transition={{ delay: idx * 0.15, duration: 0.5 }}
+              className="glass-panel rounded-2xl overflow-hidden group shadow-lg hover:shadow-2xl hover:shadow-gold-500/20 cursor-pointer transition-shadow"
             >
-              <div className="h-40 md:h-64 overflow-hidden">
+              <div className="h-40 md:h-64 overflow-hidden relative">
                 <img 
                   src={item.image} 
                   alt={item.name} 

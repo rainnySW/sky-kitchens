@@ -85,11 +85,12 @@ const OurMenuPage = () => {
         {menu.map((item: any, idx: number) => (
           <motion.div 
             key={item.id}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            whileHover={{ y: -5, scale: 1.02 }}
             viewport={{ once: true }}
-            transition={{ delay: idx * 0.1 }}
-            className="glass-panel rounded-2xl overflow-hidden flex flex-col cursor-pointer group"
+            transition={{ delay: idx * 0.05, duration: 0.4 }}
+            className="glass-panel rounded-2xl overflow-hidden flex flex-col cursor-pointer group shadow-md hover:shadow-xl hover:shadow-gold-500/10 transition-shadow"
             onClick={() => handleOpenModal(item)}
           >
             <div className="h-32 md:h-48 overflow-hidden relative">
