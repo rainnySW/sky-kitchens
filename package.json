@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "server": "node api/index.js",
     "start": "node api/index.js"
@@ -31,9 +30,6 @@
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
